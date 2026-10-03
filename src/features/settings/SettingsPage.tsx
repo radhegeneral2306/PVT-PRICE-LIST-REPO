@@ -56,9 +56,9 @@ export function SettingsPage() {
     const pend = pendingWrites > 0 ? ` · ${pendingWrites} ${pendingWrites === 1 ? 'change' : 'changes'} waiting` : '';
     const ago = lastSync ? timeAgo(lastSync) : '';
     if (syncStatus === 'syncing' || syncing) return 'Syncing now' + pend;
-    if (syncStatus === 'offline') return (lastSync ? `Offline. Last synced ${ago}` : 'Offline') + pend;
+    if (syncStatus === 'offline') return (lastSync ? `Offline. Last synced ${ago.charAt(0).toLowerCase() + ago.slice(1)}` : 'Offline') + pend;
     if (syncStatus === 'error') return 'Could not sync' + pend;
-    return (lastSync ? `Synced ${ago}` : 'Not synced yet') + pend;
+    return (lastSync ? `Synced ${ago.charAt(0).toLowerCase() + ago.slice(1)}` : 'Not synced yet') + pend;
   })();
   const syncOk = syncStatus === 'idle' && pendingWrites === 0;
 

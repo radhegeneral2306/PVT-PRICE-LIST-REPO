@@ -41,8 +41,8 @@ export function FileViewerPage() {
   const goBack = useCallback(() => {
     const idx = (window.history.state as { idx?: number } | null)?.idx ?? 0;
     if (idx > 0) navigate(-1);
-    else navigate(pricelistId ? `/pricelist/${pricelistId}` : '/', { replace: true });
-  }, [navigate, pricelistId]);
+    else navigate(pricelist ? `/factories/${pricelist.factoryId}` : '/', { replace: true }); // the pricelist page forwards file lists back here, so go one level higher
+  }, [navigate, pricelist]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') goBack(); };

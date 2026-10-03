@@ -29,7 +29,7 @@ export default defineConfig({
           { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       },
-      workbox: { navigateFallback: 'index.html', globPatterns: ['**/*.{js,css,html,png,woff2}', 'icon.svg'] }
+      workbox: { navigateFallback: 'index.html', globPatterns: ['**/*.{js,mjs,css,html,png,woff2}', 'icon.svg'] }
     })
   ],
   test: { environment: 'jsdom', globals: true, include: ['src/**/*.test.{ts,tsx}'] }
