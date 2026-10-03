@@ -1,0 +1,26 @@
+.home-greet { padding: 8px 2px 12px; }
+.home-greet .hi { font-size: 13px; color: var(--text-2); font-weight: 500; }
+.home-greet h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; }
+.search.big { height: 54px; font-size: 16px; border-radius: var(--r-lg); }
+.home-cta { height: 54px; font-size: 16px; border-radius: var(--r-lg); }
+.home-list .row .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.home-list .row .eyebrow { font-size: 12px; font-weight: 500; }
+.row-meta { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; font-size: 12px; color: var(--text-2); }
+.home-sec { display: flex; justify-content: space-between; align-items: baseline; }
+.home-sec .section-title { flex: 1; }
+.dh-right { text-align: right; flex: none; }
+.dh-right .a { font-size: 13px; font-weight: 500; }
+.dh-right .badge { margin-top: 3px; }
+.home-desk { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 24px; margin-top: 20px; align-items: start; }
+.home-desk h2.st { font-size: 13px; font-weight: 600; color: var(--text-2); margin: 0 2px 8px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.panel-h { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+.panel-h h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.panel-h .s { font-size: 13px; color: var(--text-2); }
+.ptable-wrap { overflow-x: auto; }
+.ptable { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ptable th { text-align: left; font-size: 12px; font-weight: 600; color: var(--text-2); padding: 0 14px; height: 38px; background: var(--surface-2); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ptable td { padding: 0 14px; height: 44px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ptable tr:last-child td { border-bottom: 0; }
+.ptable .r { text-align: right; }
+.home-kbd { margin-left: auto; font-family: var(--mono); font-size: 12px; border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; color: var(--text-3); }

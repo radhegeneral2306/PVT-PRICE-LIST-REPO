@@ -1,0 +1,46 @@
+.chip .n { margin-left: 6px; font-family: var(--mono); font-size: 12px; opacity: .85; }
+.count-line { font-size: 13px; color: var(--text-2); margin: 4px 2px 0; }
+.fac-list .row { min-height: 76px; }
+.fac-list .row .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fac-loc { display: flex; align-items: center; gap: 4px; }
+.fac-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; font-size: 12px; color: var(--text-2); flex-wrap: wrap; }
+.fac-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: 12px; color: var(--text-2); }
+.fac-right .chev { color: var(--text-3); font-size: 16px; }
+.add-btn { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.add-btn:hover { filter: brightness(1.08); }
+
+.fd-head { display: flex; gap: 14px; align-items: center; padding: 0 2px 12px; }
+.fd-head .avatar { width: 52px; height: 52px; font-size: 22px; border-radius: var(--r-lg); }
+.fd-head h2 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.fd-head .s { font-size: 13px; color: var(--text-2); margin-top: 3px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.fd-contact { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 14px; }
+.fd-contact .lbl { font-size: 12px; color: var(--text-2); }
+.fd-contact .nm { font-weight: 600; font-size: 15px; margin-top: 1px; }
+.fd-contact .num { font-size: 13px; color: var(--text-2); }
+.fd-act { width: 44px; height: 44px; border-radius: var(--r-md); display: grid; place-items: center; font-size: 22px; flex: none; }
+.fd-act.call { background: var(--accent-soft); color: var(--accent); }
+.fd-act.wa { background: var(--accent); color: var(--accent-ink); }
+.fd-notes { font-size: 13px; color: var(--text-2); padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); white-space: pre-wrap; overflow-wrap: anywhere; }
+.fd-cur { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: var(--r-lg); padding: 14px; }
+.fd-cur + .fd-cur { margin-top: 10px; }
+.fd-cur .top { font-size: 12px; font-weight: 600; color: var(--accent); }
+.fd-cur h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; margin-top: 6px; overflow-wrap: anywhere; }
+.fd-cur .facts { display: flex; gap: 12px; align-items: center; margin-top: 10px; font-size: 13px; color: var(--text-2); flex-wrap: wrap; }
+.fd-cur .facts b { color: var(--text); font-weight: 600; }
+.fd-cur .note { margin-top: 8px; font-size: 13px; color: var(--text-2); display: flex; gap: 6px; align-items: center; }
+.fd-cur .btn { margin-top: 12px; height: 46px; }
+.fd-none { padding: 16px; border: 1px dashed var(--line); border-radius: var(--r-lg); color: var(--text-2); font-size: 14px; background: var(--surface); }
+.fd-hist .row .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fd-src { width: 36px; height: 36px; border-radius: var(--r-md); background: var(--surface-2); color: var(--text-2); display: grid; place-items: center; font-size: 18px; flex: none; }
+.fd-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 12px; color: var(--text-2); flex-wrap: wrap; }
+.cmp-sum { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.cmp-scroll { overflow-x: auto; margin: 0 -4px; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.cmp-table th { text-align: left; font-size: 11px; font-weight: 600; color: var(--text-2); padding: 6px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.cmp-table td { padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cmp-table .r { text-align: right; white-space: nowrap; }
+.cmp-table .nm { font-weight: 600; }
+.cmp-table .sz { font-size: 12px; color: var(--text-2); }
+.up { color: var(--danger); }
+.down { color: var(--accent); }
+.menu-list .row { min-height: 56px; }

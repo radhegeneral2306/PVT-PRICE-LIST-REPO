@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<link rel="stylesheet" href="../tokens.css">
+<script src="../data.js"></script>
+<style>
+.greet { padding: 0 2px 12px; }
+.greet .hi { font-size: 13px; color: var(--text-2); font-weight: 500; }
+.greet h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; }
+.search.big { height: 54px; font-size: 16px; border-radius: var(--r-lg); }
+.cta { margin-top: 12px; height: 54px; font-size: 16px; border-radius: var(--r-lg); }
+.chips { margin-top: 14px; }
+.row .meta { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; font-size: 12px; color: var(--text-2); }
+.row .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fname { font-size: 12px; color: var(--text-2); font-weight: 500; }
+.right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex: none; }
+.right .ago { font-size: 12px; color: var(--text-2); }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; }
+.sec-head a { font-size: 13px; font-weight: 600; color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div class="scroll" style="padding-top:4px">
+    <div class="greet">
+      <div class="hi">Good morning, Owner</div>
+      <h1>Radhe General</h1>
+    </div>
+    <div class="search big"><i class="ph ph-magnifying-glass"></i><span>Search item, size or factory</span></div>
+    <button class="btn btn-primary btn-block cta"><i class="ph-bold ph-plus"></i>Add pricelist</button>
+    <div class="chips">
+      <span class="chip on">All</span><span class="chip">Tiles</span><span class="chip">Sanitaryware</span>
+    </div>
+    <div class="sec-head"><div class="section-title">Recently updated</div><a>See all</a></div>
+    <div class="list" id="list"></div>
+  </div>
+  <div class="tabbar">
+    <div class="tab active"><i class="ph-fill ph-house"></i>Home</div>
+    <div class="tab"><i class="ph ph-factory"></i>Factories</div>
+    <div class="tab"><i class="ph ph-magnifying-glass"></i>Search</div>
+    <div class="tab"><i class="ph ph-gear"></i>Settings</div>
+  </div>
+</div>
+<script>
+const D = window.DATA;
+const order = ['f5','f1','f3','f2','f4'];
+const src = { items:['ph-list-bullets','Items'], pdf:['ph-file-pdf','PDF'], image:['ph-image','Image'] };
+document.getElementById('list').innerHTML = order.map(id => {
+  const f = D.factories.find(x => x.id === id);
+  const p = D.pricelists.find(x => x.id === f.current);
+  const s = src[p.source];
+  const stale = id === 'f4';
+  return `<div class="row">
+    <div class="avatar">${f.name[0]}</div>
+    <div class="grow">
+      <div class="fname">${f.name} \u00b7 ${f.updated}</div>
+      <div class="t">${p.title}</div>
+      <div class="meta"><span class="mono">${p.effective}</span><span class="badge"><i class="ph ph-bold ${s[0]}"></i>${s[1]}</span></div>
+    </div>
+    <div class="right">${stale ? '<span class="badge warn"><i class="ph-bold ph-warning"></i>Stale</span>' : '<i class="ph ph-caret-right" style="color:var(--text-3);font-size:16px"></i>'}</div>
+  </div>`;
+}).join('');
+</script>
+</body>
+</html>

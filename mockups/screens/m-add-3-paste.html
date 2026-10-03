@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Add pricelist paste</title><link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>.steps{padding:0 16px 14px}.steps .lab{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:8px}.steps .bar{display:flex;gap:6px}.steps .bar i{flex:1;height:4px;border-radius:2px;background:var(--line)}.steps .bar i.on{background:var(--accent)}.h2{padding:0 16px 14px;font-size:24px;font-weight:700;letter-spacing:-.02em}.topbar h1{font-size:17px;text-align:center;flex:1}.topbar .sp{width:44px}.actionbar{padding-bottom:24px}.actionbar .btn{flex:1}
+.ta{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;font-family:var(--mono);font-size:12.5px;line-height:1.65;color:var(--text);height:192px;overflow:hidden;position:relative}
+.ta div{white-space:nowrap}
+.tah{display:flex;justify-content:space-between;align-items:center;margin:0 18px 8px;font-size:13px;font-weight:600;color:var(--text-2)}
+.tah a{color:var(--accent);display:flex;align-items:center;gap:4px}
+.sum{display:flex;align-items:center;gap:10px;margin:16px 16px 8px}
+.sum b{font-size:15px}.sum .badge{margin-left:auto}
+.pv{margin:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.hd,.pr{display:grid;grid-template-columns:1fr 62px 46px 74px 28px;gap:4px;align-items:center;padding:0 10px}
+.hd{height:30px;font-size:11px;font-weight:600;color:var(--text-2);background:var(--surface-2)}
+.pr{min-height:40px;font-size:12.5px;border-top:1px solid var(--line)}
+.pr .c{font-size:11.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding:6px 0;border-radius:6px;border:1px dashed transparent}
+.pr .c.n{white-space:normal;line-height:1.2;font-size:12.5px;font-weight:600;padding-left:0}
+.pr .r{font-family:var(--mono);font-weight:600;text-align:right}
+.pr.flag{background:var(--warn-soft)}
+.pr.flag .r{border:1px solid var(--warn);background:var(--surface);color:var(--warn);font-weight:600;font-family:var(--font);font-size:10.5px;padding:6px 1px;text-align:center}
+.pr .u{color:var(--text-2);font-size:12px}
+.warnline{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--warn);font-weight:600;padding:6px 10px 8px;background:var(--warn-soft)}
+</style></head><body><div class="app">
+<div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:15px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+<div class="topbar"><a class="iconbtn"><i class="ph ph-arrow-left"></i></a><h1>Add pricelist</h1><span class="sp"></span></div>
+<div class="steps"><div class="lab"><span>Step 2 of 3</span><span>Paste text</span></div><div class="bar"><i class="on"></i><i class="on"></i><i></i></div></div>
+<div class="tah"><span>Pasted text</span><a><i class="ph ph-trash"></i>Clear</a></div>
+<div class="ta">
+<div>Calacatta Gold 600x1200 glossy 38.5/sqft</div>
+<div>Calacatta Gold 800x1600 glossy 68/sqft</div>
+<div>Statuario Ice 600x1200 matt 36/sqft</div>
+<div>carrara grey 600x600 glossy 27.5</div>
+<div>Onyx Honey 800x800 glossy 44/sqft</div>
+<div>Slate Black 600x1200 rustic  ???</div>
+<div>Terrazzo Sand 600x600 matt 25/sqft</div>
+<div>Wood Walnut Plank 200x1200 matt 29.5/sqft</div>
+</div>
+<div class="sum"><i class="ph-fill ph-check-circle" style="color:var(--accent);font-size:20px"></i><b>7 of 8 rows read</b><span class="badge warn"><i class="ph-bold ph-warning"></i>1 to check</span></div>
+<div class="pv">
+<div class="hd"><span>Item</span><span>Size</span><span>Finish</span><span style="text-align:right">Rate</span><span>Unit</span></div>
+<div class="pr"><div class="c n">Calacatta Gold</div><div class="c">600x1200</div><div class="c">Glossy</div><div class="c r">38.50</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Calacatta Gold</div><div class="c">800x1600</div><div class="c">Glossy</div><div class="c r">68.00</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Statuario Ice</div><div class="c">600x1200</div><div class="c">Matt</div><div class="c r">36.00</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Carrara Grey</div><div class="c">600x600</div><div class="c">Glossy</div><div class="c r">27.50</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Onyx Honey</div><div class="c">800x800</div><div class="c">Glossy</div><div class="c r">44.00</div><div class="u">sqft</div></div>
+<div class="pr flag"><div class="c n">Slate Black</div><div class="c">600x1200</div><div class="c">Rustic</div><div class="c r">Check rate</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Terrazzo Sand</div><div class="c">600x600</div><div class="c">Matt</div><div class="c r">25.00</div><div class="u">sqft</div></div>
+<div class="pr"><div class="c n">Wood Walnut Plank</div><div class="c">200x1200</div><div class="c">Matt</div><div class="c r">29.50</div><div class="u">sqft</div></div>
+</div>
+<div style="flex:1"></div>
+<div class="actionbar"><a class="btn">Back</a><a class="btn btn-primary" style="flex:2">Review and save<i class="ph-bold ph-arrow-right"></i></a></div>
+</div></body></html>

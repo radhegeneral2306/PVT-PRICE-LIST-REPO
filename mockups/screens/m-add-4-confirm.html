@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Add pricelist confirm</title><link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>.steps{padding:0 16px 14px}.steps .lab{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:8px}.steps .bar{display:flex;gap:6px}.steps .bar i{flex:1;height:4px;border-radius:2px;background:var(--line)}.steps .bar i.on{background:var(--accent)}.h2{padding:0 16px 14px;font-size:24px;font-weight:700;letter-spacing:-.02em}.topbar h1{font-size:17px;text-align:center;flex:1}.topbar .sp{width:44px}.actionbar{padding-bottom:24px}.actionbar .btn{flex:1}
+.sumc{margin:0 0 20px}
+.sumc .row{min-height:52px}
+.sumc .k{font-size:13px;color:var(--text-2);width:86px;flex:none}
+.sumc .v{font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px}
+.input .tx{flex:1}.input i{color:var(--text-3);font-size:20px}
+.caret{width:2px;height:20px;background:var(--accent);margin-left:1px}
+.chips .chip{height:40px;padding:0 18px;font-size:14px}
+.info{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--accent-soft);border-radius:var(--r-md);font-size:13px;color:var(--text);line-height:1.4}
+.info i{color:var(--accent);font-size:20px;flex:none}
+.scroll{padding-top:0}
+</style></head><body><div class="app">
+<div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:15px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+<div class="topbar"><a class="iconbtn"><i class="ph ph-arrow-left"></i></a><h1>Add pricelist</h1><span class="sp"></span></div>
+<div class="steps"><div class="lab"><span>Step 3 of 3</span><span>Confirm</span></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+<div class="scroll" style="padding-top:0">
+<div class="list sumc">
+<div class="row"><span class="k">Factory</span><span class="v">Sunrise Ceramics</span></div>
+<div class="row"><span class="k">Source</span><span class="v"><i class="ph ph-clipboard-text" style="color:var(--text-2);font-size:18px"></i>Pasted text</span></div>
+<div class="row"><span class="k">Items</span><span class="v mono">8</span><span class="badge warn" style="margin-left:auto">1 to check</span></div>
+</div>
+<div class="field"><label>Pricelist title</label><div class="input focus"><span class="tx">GVT Collection Oct 2026</span><span class="caret"></span></div></div>
+<div class="field"><label>Effective date</label><div class="input"><span class="tx">01 Oct 2026</span><i class="ph ph-calendar-blank"></i></div></div>
+<div class="field"><label>Category</label><div class="chips"><span class="chip on">Tiles</span><span class="chip">Sanitaryware</span><span class="chip">Other</span></div></div>
+<div class="field"><label>Note (optional)</label><div class="input" style="height:auto;min-height:72px;align-items:flex-start;padding-top:13px;line-height:1.4">Rates ex-factory, GST extra</div></div>
+<div class="info"><i class="ph ph-clock-counter-clockwise"></i><span>Previous list (Sep 2026) will move to History. You can still open it anytime.</span></div>
+</div>
+<div class="actionbar"><a class="btn">Back</a><a class="btn btn-primary" style="flex:2"><i class="ph-bold ph-check"></i>Save pricelist</a></div>
+</div></body></html>
