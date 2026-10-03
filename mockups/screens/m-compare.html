@@ -44,5 +44,5 @@ document.getElementById('hd').textContent=r.length+' matches across '+new Set(r.
 document.getElementById('rows').innerHTML=r.map(x=>`<div class="row cr${x.best?' best':''}"><div class="grow">
 <div class="f">${x.factory}${x.best?'<span class="badge ok"><i class="ph-bold ph-check"></i>Lowest</span>':''}${x.stale?'<span class="badge warn"><i class="ph-bold ph-warning"></i>Old list</span>':''}</div>
 <div class="n">${x.item}</div><div class="u${x.stale?' old':''}">Updated ${x.updated}</div></div>
-<div class="rt"><div class="p mono">${fm(x.rate)}<small>/${x.unit}</small></div><div class="d mono">${x.best?'Lowest':'+'+(x.rate-low).toFixed(2)}</div></div></div>`).join('');
+<div class="rt"><div class="p mono">${fm(x.rate)}<small>/${x.unit}</small></div><div class="d mono">${x.best?'':'+'+(x.rate-low).toFixed(2)}</div></div></div>`).join('');
 </script></body></html>
