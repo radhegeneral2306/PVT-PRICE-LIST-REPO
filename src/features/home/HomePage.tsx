@@ -146,7 +146,7 @@ function DesktopHome({ factories, pricelists }: { factories: Factory[]; pricelis
   return (
     <PageContainer wide>
       <div className="page">
-        <SearchLauncher placeholder="Search size, finish or item across all factories" kbd />
+        <div style={{ paddingTop: 16 }}><SearchLauncher placeholder="Search size, finish or item across all factories" kbd /></div>
         <div className="home-desk">
           <section>
             <h2 className="st">Recently updated</h2>

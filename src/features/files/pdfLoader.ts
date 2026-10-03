@@ -1,6 +1,7 @@
 // Lazy-loaded: imported only via dynamic import() from the viewer so pdf.js stays out of the main bundle.
-import * as pdfjs from 'pdfjs-dist';
-import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+// Legacy build: includes polyfills so it works on older phone browsers.
+import * as pdfjs from 'pdfjs-dist/legacy/build/pdf.mjs';
+import workerUrl from 'pdfjs-dist/legacy/build/pdf.worker.min.mjs?url';
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 

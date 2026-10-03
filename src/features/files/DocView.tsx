@@ -291,7 +291,7 @@ function PdfCanvas({ doc, index, width, quality }: { doc: PdfDoc; index: number;
       page.cleanup();
       setDrawn(true);
     })().catch((e: unknown) => {
-      if (!cancelled && (e as { name?: string })?.name !== 'RenderingCancelledException') setFailed(true);
+      if (!cancelled && (e as { name?: string })?.name !== "RenderingCancelledException") { console.error("pdf render", e); setFailed(true); }
     });
     return () => {
       cancelled = true;

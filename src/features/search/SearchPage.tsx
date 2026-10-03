@@ -129,7 +129,7 @@ function DesktopTable({ rows, ctx, sort, onSort }: { rows: ScoredHit[]; ctx: Row
                 <td>{h.item.name}</td>
                 <td className="mono">{h.item.size || '-'}</td>
                 <td>{h.item.finish || '-'}</td>
-                <td className="r mono rate" style={{ fontWeight: 600, fontSize: 15 }}>{rateText(h, ctx)}</td>
+                <td className={`r rate${h.item.rate != null ? ' mono' : ''}`} style={h.item.rate != null ? { fontWeight: 600, fontSize: 15 } : { color: 'var(--text-3)' }}>{rateText(h, ctx)}</td>
                 <td style={{ color: 'var(--text-2)' }}>{h.item.unit === 'sqft' ? 'per sqft' : `per ${h.item.unit}`}</td>
                 <td className={stale ? 'old' : ''}>
                   {timeAgo(h.pricelist.createdAt)}
