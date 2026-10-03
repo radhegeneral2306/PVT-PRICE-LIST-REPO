@@ -12,10 +12,11 @@
 .sr-rec .row .t { font-weight: 500; }
 .sr-rec .when { font-size: 12px; color: var(--text-3); }
 
-.sr-filters { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.sr-filters { margin-top: 12px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; align-items: center; }
+.sr-filters::-webkit-scrollbar { display: none; }
+.sr-search input[type=search]::-webkit-search-cancel-button { display: none; -webkit-appearance: none; }
 .sr-filters .chip { cursor: pointer; }
-.sr-filters .sep { width: 1px; background: var(--line); margin: 4px 2px; }
-.sr-fsel { height: 36px; padding: 0 12px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--text-2); font-size: 13px; font-weight: 500; border: 0; display: none; }
+.sr-fsel { flex: none; height: 36px; padding: 0 12px; border-radius: var(--r-pill); background: var(--surface-2); color: var(--text-2); font-size: 13px; font-weight: 500; border: 0; display: none; }
 .sr-res-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 16px 2px 8px; }
 .sr-res-h b { font-size: 15px; }
 .sr-res-h span { font-size: 12px; color: var(--text-3); }
@@ -60,7 +61,8 @@
 .sr-note i { font-size: 18px; color: var(--accent); }
 
 @media (min-width: 1024px) {
-  .sr-fsel { display: inline-block; }
+  .sr-wrap { padding-top: 24px; }
+  .sr-fsel { display: inline-block; appearance: none; padding-right: 12px; }
   .sr-filters { margin-top: 14px; }
   .sr-search .search { height: 56px; font-size: 18px; }
   .sr-search .search input { font-size: 18px; }
@@ -69,3 +71,5 @@
   .sr-res-h span { font-size: 13px; color: var(--text-2); }
   .sr-empty { padding-top: 56px; }
 }
+
+.sr-table .badge { font-family: var(--font); }

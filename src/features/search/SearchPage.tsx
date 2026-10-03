@@ -301,7 +301,7 @@ export function SearchPage() {
           </div>
         ) : (
           <>
-            <div className="sr-res-h"><b>{matchesHeader(results.length, stats.factoryCount)}</b><span>{sortLabel}</span></div>
+            <div className="sr-res-h"><b>{matchesHeader(results.length, stats.factoryCount)}</b><span>{desktop ? 'Current pricelists only' : sortLabel}</span></div>
             {desktop ? (
               <DesktopTable rows={visible} ctx={ctx} sort={sort} onSort={onSort} />
             ) : (

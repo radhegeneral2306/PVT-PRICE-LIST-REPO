@@ -77,7 +77,7 @@ function FormInner({ onClose, factory, onSaved }: FactoryFormSheetProps) {
         <Input label="Phone (optional)" type="tel" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="98250 11234" autoComplete="off" error={tried ? phoneErr : ''} />
         <TextArea label="Notes (optional)" value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Delivery days, payment terms" />
         {failed ? <div className="error-text" role="alert">{failed}</div> : null}
-        <button type="submit" className="sr-only" tabIndex={-1}>Save</button>
+        <button type="submit" className="sr-only" tabIndex={-1} aria-hidden="true" />
       </form>
     </Sheet>
   );

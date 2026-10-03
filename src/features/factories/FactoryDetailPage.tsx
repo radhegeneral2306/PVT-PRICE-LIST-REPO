@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useData } from '../../store/DataContext';
 import type { Pricelist } from '../../types';
@@ -36,7 +36,7 @@ export function FactoryDetailPage() {
     return null;
   }, [current, history]);
 
-  const bar = (right?: React.ReactNode) => <TopBar backTo="/factories" title="Factory" right={right} />;
+  const bar = (right?: ReactNode) => <TopBar backTo="/factories" title="Factory" right={right} />;
 
   if (!ready) {
     return (

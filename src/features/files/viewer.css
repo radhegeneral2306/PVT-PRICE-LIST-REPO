@@ -1,0 +1,41 @@
+/* File viewer: dark in both themes, as in the mockup. */
+.fv {
+  --v: #1b1f1d; --v-bar: #171c19; --v-btn: #2a302d; --v-line: #3a423e; --v-text: #fff; --v-dim: #aab4ae;
+  position: fixed; inset: 0; display: flex; flex-direction: column; background: var(--v); color: var(--v-text); overflow: hidden;
+}
+.fv-top { display: flex; align-items: center; gap: 12px; padding: calc(8px + var(--safe-t)) 16px 10px; flex: none; }
+.fv-top .iconbtn { background: var(--v-btn); border-color: var(--v-line); color: #fff; }
+.fv-ttl { flex: 1; min-width: 0; }
+.fv-ttl b { display: block; font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fv-ttl small { display: block; font-size: 12px; color: var(--v-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fv-stage { flex: 1; position: relative; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; outline: 0; cursor: grab; }
+.fv-stage:active { cursor: grabbing; }
+.fv-doc { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+.fv-doc.anim { transition: transform .2s ease-out; }
+.fv-page { position: absolute; left: 0; background: #fff; border-radius: 3px; box-shadow: 0 8px 30px rgba(0, 0, 0, .5); overflow: hidden; }
+.fv-page canvas, .fv-page img { display: block; width: 100%; height: 100%; -webkit-user-drag: none; pointer-events: none; }
+.fv-page .fv-ph { position: absolute; inset: 0; background: #fff; display: grid; place-items: center; color: #888; font-size: 13px; }
+.fv-ctl { position: absolute; bottom: 14px; display: flex; align-items: center; background: rgba(20, 24, 22, .94); border: 1px solid var(--v-line); border-radius: 999px; overflow: hidden; color: #fff; }
+.fv-ctl button { width: 46px; height: 46px; display: grid; place-items: center; color: #fff; font-size: 20px; }
+.fv-ctl button + button { border-left: 1px solid var(--v-line); }
+.fv-ctl button:disabled { opacity: .4; }
+.fv-pill { left: 14px; padding: 0 2px; }
+.fv-pill button { width: 40px; font-size: 14px; color: var(--v-dim); }
+.fv-pill button + button { border-left: 0; }
+.fv-pill span { font-size: 14px; font-weight: 600; min-width: 56px; text-align: center; font-variant-numeric: tabular-nums; }
+.fv-zoom { right: 14px; }
+.fv-act { flex: none; background: var(--v-bar); border-top: 1px solid #2a322d; padding: 12px 16px calc(12px + var(--safe-b)); display: flex; gap: 10px; }
+.fv-act .btn { flex: 1; background: var(--v-btn); border-color: var(--v-line); color: #fff; padding: 0 8px; }
+.fv-act .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.fv-state { flex: 1; display: grid; place-items: center; overflow: auto; }
+.fv-state .state { color: #fff; }
+.fv-state .state h2 { color: #fff; }
+.fv-state .state p { color: var(--v-dim); max-width: 320px; }
+.fv-state .state .state-icon { background: #2a302d; color: #fff; }
+.fv-state .btn { background: var(--v-btn); border-color: var(--v-line); color: #fff; }
+.fv-skel { width: min(100% - 28px, 920px); height: min(100% - 12px, 720px); margin: 4px auto 0; border-radius: 3px; background: linear-gradient(90deg, #262c29 25%, #323a36 37%, #262c29 63%); background-size: 400% 100%; animation: shimmer 1.4s ease infinite; }
+.fv-info { display: grid; grid-template-columns: 110px 1fr; gap: 12px 12px; margin: 0; font-size: 15px; }
+.fv-info dt { color: var(--text-2); font-size: 13px; padding-top: 2px; }
+.fv-info dd { margin: 0; overflow-wrap: anywhere; }
+@media (min-width: 1024px) { .fv-top { padding-left: 28px; padding-right: 28px; } .fv-act { justify-content: center; } .fv-act .btn { max-width: 220px; } }
+@media (prefers-reduced-motion: reduce) { .fv-doc.anim { transition: none; } }

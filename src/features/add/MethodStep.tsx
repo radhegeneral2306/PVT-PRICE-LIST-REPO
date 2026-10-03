@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Button, Icon } from '../../ui';
 import { useAdd } from './AddContext';
@@ -14,6 +15,7 @@ export function MethodStep() {
   const { state, dispatch, factory } = useAdd();
   const navigate = useNavigate();
   const method = state.method;
+  useEffect(() => { if (!state.method) dispatch({ type: 'patch', patch: { method: 'paste' } }); }, [state.method, dispatch]);
   const next = () => navigate(method === 'paste' ? '/add/paste' : '/add/upload');
 
   return (
