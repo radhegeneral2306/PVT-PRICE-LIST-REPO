@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<title>Search</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>
+.empty{text-align:center;padding:36px 12px 8px}
+.empty .ic{width:64px;height:64px;border-radius:20px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:32px;margin:0 auto 16px}
+.empty h2{font-size:18px;font-weight:700;letter-spacing:-0.01em}
+.empty p{font-size:14px;color:var(--text-2);margin-top:6px;max-width:300px;margin-inline:auto}
+.ex{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.ex .e{height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);font-weight:500}
+.ex .e i:first-child{color:var(--accent);font-size:18px}.ex .e i:last-child{margin-left:auto;color:var(--text-3)}
+.rec .row{min-height:52px}.rec .row i.l{color:var(--text-3);font-size:20px}
+.hd{display:flex;justify-content:space-between;align-items:center}.hd a{font-size:13px;font-weight:600;color:var(--accent);margin:20px 2px 8px}
+</style></head><body>
+<div class="app">
+<div class="statusbar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i> <i class="ph-fill ph-wifi-high"></i> <i class="ph-fill ph-battery-full"></i></span></div>
+<div class="topbar"><h1>Search</h1></div>
+<div class="scroll" style="padding-top:0">
+  <div class="field" style="margin-bottom:0"><label>Search all pricelists</label>
+  <div class="search"><i class="ph ph-magnifying-glass"></i><span>Size, finish or item name</span></div></div>
+  <div class="empty"><div class="ic"><i class="ph ph-scales"></i></div>
+  <h2>Compare rates across factories</h2>
+  <p>Type a size, finish or item and see every factory's rate side by side, lowest first.</p></div>
+  <div class="ex">
+    <div class="e"><i class="ph ph-clock-counter-clockwise" style="display:none"></i><i class="ph ph-magnifying-glass"></i>600x1200 glossy<i class="ph ph-arrow-up-left"></i></div>
+    <div class="e"><i class="ph ph-magnifying-glass"></i>wall hung WC<i class="ph ph-arrow-up-left"></i></div>
+    <div class="e"><i class="ph ph-magnifying-glass"></i>800x800 matt<i class="ph ph-arrow-up-left"></i></div>
+  </div>
+  <div class="hd"><div class="section-title">Recent searches</div><a>Clear</a></div>
+  <div class="list rec">
+    <div class="row"><i class="ph ph-clock-counter-clockwise l"></i><div class="grow t" style="font-weight:500">600x600 glossy</div><span class="s mono" style="margin:0">Yesterday</span></div>
+    <div class="row"><i class="ph ph-clock-counter-clockwise l"></i><div class="grow t" style="font-weight:500">table top basin</div><span class="s mono" style="margin:0">2 days ago</span></div>
+    <div class="row"><i class="ph ph-clock-counter-clockwise l"></i><div class="grow t" style="font-weight:500">200x1200 wood plank</div><span class="s mono" style="margin:0">Last week</span></div>
+  </div>
+</div>
+<div class="tabbar">
+<div class="tab"><i class="ph ph-house"></i>Home</div>
+<div class="tab"><i class="ph ph-factory"></i>Factories</div>
+<div class="tab active"><i class="ph-fill ph-magnifying-glass"></i>Search</div>
+<div class="tab"><i class="ph ph-gear"></i>Settings</div>
+</div></div></body></html>

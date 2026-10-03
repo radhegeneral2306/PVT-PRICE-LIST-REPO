@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factory detail</title>
+<link rel="stylesheet" href="../tokens.css">
+<script src="../data.js"></script>
+<style>
+.head { display:flex; gap:14px; align-items:center; padding: 0 2px 12px; }
+.head .avatar { width:52px; height:52px; font-size:22px; border-radius: var(--r-lg); }
+.head h2 { font-size:19px; font-weight:700; letter-spacing:-0.01em; }
+.head .s { font-size:13px; color:var(--text-2); margin-top:3px; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.contact { display:flex; align-items:center; gap:12px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:12px 14px; }
+.contact .grow { flex:1; min-width:0; }
+.contact .lbl { font-size:12px; color:var(--text-2); }
+.contact .nm { font-weight:600; font-size:15px; margin-top:1px; }
+.contact .ph-n { font-size:13px; color:var(--text-2); }
+.act { width:44px; height:44px; border-radius:var(--r-md); display:grid; place-items:center; font-size:22px; flex:none; }
+.act.call { background:var(--accent-soft); color:var(--accent); }
+.act.wa { background:var(--accent); color:var(--accent-ink); }
+.cur { background:var(--accent-soft); border:1px solid var(--accent); border-radius:var(--r-lg); padding:14px; }
+.cur .top { display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:600; color:var(--accent); }
+.cur h3 { font-size:18px; font-weight:700; letter-spacing:-0.01em; margin-top:8px; color:var(--text); }
+.cur .facts { display:flex; gap:12px; align-items:center; margin-top:10px; font-size:13px; color:var(--text-2); }
+.cur .facts b { color:var(--text); font-weight:600; }
+.cur .note { margin-top:8px; font-size:13px; color:var(--text-2); display:flex; gap:6px; align-items:center; }
+.cur .btn { margin-top:12px; height:46px; }
+.section-title{margin-top:16px}
+.hist-head { display:flex; justify-content:space-between; align-items:center; }
+.row .meta { display:flex; align-items:center; gap:6px; margin-top:4px; font-size:12px; color:var(--text-2); flex-wrap:wrap; }
+.row .t { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.srcicon { width:36px; height:36px; border-radius:var(--r-md); background:var(--surface-2); color:var(--text-2); display:grid; place-items:center; font-size:18px; flex:none; }
+.cmp { margin-top:12px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div class="topbar"><div class="iconbtn"><i class="ph ph-arrow-left"></i></div><h1 style="font-size:18px">Factory</h1><div class="iconbtn"><i class="ph ph-dots-three-vertical"></i></div></div>
+  <div class="scroll" id="root"></div>
+</div>
+<script>
+const D = window.DATA;
+const f = D.factories[0], p = D.pricelists[0];
+const hist = [
+  { t:'GVT Collection Sep 2026', src:'items', d:'01 Sep 2026', n:'81 items' },
+  { t:'Glazed Tiles Aug 2026', src:'pdf', d:'02 Aug 2026', n:'10 pages' },
+  { t:'GVT Collection Jul 2026', src:'items', d:'03 Jul 2026', n:'79 items' },
+  { t:'Summer Offer Jun 2026', src:'pdf', d:'01 Jun 2026', n:'8 pages' }
+];
+const ic = { items:['ph-list-bullets','Items'], pdf:['ph-file-pdf','PDF'] };
+document.getElementById('root').innerHTML = `
+  <div class="head"><div class="avatar">${f.name[0]}</div><div><h2>${f.name}</h2>
+    <div class="s"><span class="badge ok">${f.category}</span><span style="display:flex;align-items:center;gap:3px"><i class="ph ph-map-pin"></i>${f.city}</span><span>${f.lists} lists</span></div></div></div>
+  <div class="contact">
+    <div class="grow"><div class="lbl">Contact person</div><div class="nm">${f.contact}</div><div class="ph-n mono">+91 ${f.phone}</div></div>
+    <div class="act call"><i class="ph-bold ph-phone-call"></i></div>
+    <div class="act wa"><i class="ph-fill ph-whatsapp-logo"></i></div>
+  </div>
+  <div class="section-title">Current pricelist</div>
+  <div class="cur">
+    <h3 style="margin-top:0">${p.title}</h3>
+    <div class="facts"><span class="badge ok" style="background:var(--surface)"><i class="ph-bold ph-list-bullets"></i>Items</span><span><b class="mono">${p.count}</b> items</span><span>From <b class="mono">${p.effective}</b></span></div>
+    <div class="note"><i class="ph ph-note"></i>${p.note}</div>
+    <button class="btn btn-primary btn-block"><i class="ph-bold ph-arrow-square-out"></i>Open</button>
+  </div>
+  <div class="section-title hist-head"><span>History</span><span style="font-weight:500">4 older lists</span></div>
+  <div class="list">${hist.map(h => `
+    <div class="row"><div class="srcicon"><i class="ph ${ic[h.src][0]}"></i></div>
+      <div class="grow"><div class="t">${h.t}</div><div class="meta"><span class="mono">${h.d}</span><span>${h.n}</span></div></div>
+      <span class="badge">Archived</span></div>`).join('')}</div>
+  <button class="btn btn-block cmp"><i class="ph-bold ph-arrows-left-right"></i>Compare with previous</button>
+`;
+</script>
+</body>
+</html>

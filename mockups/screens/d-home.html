@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1280">
+<title>Home</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>*{}
+.biz{display:flex;gap:10px;align-items:center;padding:4px 6px 18px}.logo{width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+.bn{font-weight:700;font-size:15px}.bs{font-size:12px;color:var(--text-2)}
+.rfoot{margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px 6px 0;border-top:1px solid var(--line)}
+main{padding:24px 32px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.dsearch{height:48px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--text-3)}.dsearch i{font-size:20px}
+.kbd{margin-left:auto;font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 6px;color:var(--text-3)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;font-weight:600;color:var(--text-2);padding:0 14px;height:38px;background:var(--surface-2);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:0 14px;height:44px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}.r{text-align:right}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.cols{display:grid;grid-template-columns:400px 1fr;gap:24px;margin-top:20px;flex:1;min-height:0}
+.ph-h{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.ph-h h2{font-size:17px;font-weight:700;letter-spacing:-0.01em}
+.ph-h .s{font-size:13px;color:var(--text-2)}
+.row.sel{background:var(--accent-soft)}
+h3.st{font-size:13px;font-weight:600;color:var(--text-2);margin:0 2px 8px}
+.row{min-height:58px}
+</style></head><body>
+<div class="desk">
+<aside class="rail"><div class="biz"><div class="logo">R</div><div><div class="bn">Radhe General</div><div class="bs">Pricelist Vault</div></div></div><span class="btn btn-primary" style="margin:6px 0 14px"><i class="ph-bold ph-plus"></i>Add pricelist</span><div class="navitem active"><i class="ph-fill ph-house"></i>Home</div><div class="navitem"><i class="ph ph-factory"></i>Factories</div><div class="navitem"><i class="ph ph-magnifying-glass"></i>Search</div><div class="navitem"><i class="ph ph-gear"></i>Settings</div><div class="rfoot"><div class="avatar" style="width:36px;height:36px;font-size:14px">O</div><div><div style="font-weight:600;font-size:14px">Owner</div><div style="font-size:12px;color:var(--text-2)">Synced 2 min ago</div></div></div></aside>
+<main>
+  <div class="dsearch"><i class="ph ph-magnifying-glass"></i>Search size, finish or item across all factories<span class="kbd">/</span></div>
+  <div class="cols">
+    <section><h3 class="st">Recently updated</h3><div class="list" id="fl"></div></section>
+    <section style="min-width:0"><h3 class="st">Current pricelist preview</h3>
+      <div class="panel">
+        <div class="ph-h"><div class="avatar">S</div><div style="flex:1"><h2>Sunrise Ceramics</h2><div class="s">GVT Collection Oct 2026 · effective 01 Oct 2026 · 84 items</div></div><span class="badge ok">Current</span><span class="btn" style="height:38px;font-size:14px">Open full list<i class="ph-bold ph-arrow-right"></i></span></div>
+        <table><thead><tr><th>Item</th><th>Size</th><th>Finish</th><th class="r">Rate</th><th>Unit</th></tr></thead><tbody id="it"></tbody></table>
+      </div>
+      <div style="font-size:13px;color:var(--text-2);margin:10px 2px">Showing 8 of 84 items. Rates ex-factory, GST extra.</div>
+    </section>
+  </div>
+</main></div>
+<script>
+const order=['f5','f1','f3','f2','f4'];
+document.getElementById('fl').innerHTML=order.map(id=>DATA.factories.find(f=>f.id===id)).map(f=>'<div class="row'+(f.id==='f1'?' sel':'')+'"><div class="avatar">'+f.name[0]+'</div><div class="grow"><div class="t">'+f.name+'</div><div class="s">'+f.city+' · '+f.category+'</div></div><div style="text-align:right"><div style="font-size:13px;font-weight:500">'+f.updated+'</div>'+(f.id==='f4'?'<span class="badge warn" style="margin-top:3px">Old list</span>':'<div class="s">'+f.lists+' lists</div>')+'</div></div>').join('');
+document.getElementById('it').innerHTML=DATA.tileItems.map(i=>'<tr><td style="font-weight:600">'+i.name+'</td><td class="mono">'+i.size+'</td><td>'+i.finish+'</td><td class="r mono" style="font-weight:600">₹'+i.rate.toFixed(2)+'</td><td style="color:var(--text-2)">per '+i.unit+'</td></tr>').join('');
+</script></body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factories</title>
+<link rel="stylesheet" href="../tokens.css">
+<script src="../data.js"></script>
+<style>
+.chips { margin: 14px 0 4px; }
+.chip .n { margin-left: 6px; font-family: var(--mono); font-size: 12px; opacity: .85; }
+.row .meta { display:flex; align-items:center; gap:6px; margin-top:5px; font-size:12px; color:var(--text-2); flex-wrap:wrap; }
+.row .t { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.right { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex:none; font-size:12px; color:var(--text-2); }
+.count { font-size: 13px; color: var(--text-2); margin: 16px 2px 8px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div class="topbar"><h1>Factories</h1><div class="iconbtn" style="background:var(--accent);color:var(--accent-ink);border-color:transparent"><i class="ph-bold ph-plus"></i></div></div>
+  <div class="scroll">
+    <div class="search"><i class="ph ph-magnifying-glass"></i><span>Search factory or city</span></div>
+    <div class="chips">
+      <span class="chip on">All<span class="n">5</span></span><span class="chip">Tiles<span class="n">3</span></span><span class="chip">Sanitaryware<span class="n">2</span></span>
+    </div>
+    <div class="count">5 factories, sorted by name</div>
+    <div class="list" id="list"></div>
+  </div>
+  <div class="tabbar">
+    <div class="tab"><i class="ph ph-house"></i>Home</div>
+    <div class="tab active"><i class="ph-fill ph-factory"></i>Factories</div>
+    <div class="tab"><i class="ph ph-magnifying-glass"></i>Search</div>
+    <div class="tab"><i class="ph ph-gear"></i>Settings</div>
+  </div>
+</div>
+<script>
+const D = window.DATA;
+const fs = [...D.factories].sort((a,b)=>a.name.localeCompare(b.name));
+document.getElementById('list').innerHTML = fs.map(f => `
+  <div class="row" style="min-height:76px">
+    <div class="avatar">${f.name[0]}</div>
+    <div class="grow">
+      <div class="t">${f.name}</div>
+      <div class="s" style="display:flex;align-items:center;gap:4px"><i class="ph ph-map-pin"></i>${f.city}</div>
+      <div class="meta"><span class="badge ${f.category==='Tiles'?'ok':''}">${f.category}</span><span>Updated ${f.updated.toLowerCase()}</span></div>
+    </div>
+    <div class="right"><span><span class="mono" style="font-weight:600;color:var(--text)">${f.lists}</span> lists</span><i class="ph ph-caret-right" style="color:var(--text-3);font-size:16px"></i></div>
+  </div>`).join('');
+</script>
+</body>
+</html>

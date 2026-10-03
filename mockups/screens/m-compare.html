@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=390">
+<title>Search</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>
+.q{color:var(--text);flex:1}
+.clr{width:44px;height:44px;margin-right:-14px;display:grid;place-items:center;color:var(--text-3);font-size:20px}
+.res-h{display:flex;justify-content:space-between;align-items:baseline;margin:16px 2px 8px}
+.res-h b{font-size:15px}.res-h span{font-size:12px;color:var(--text-3)}
+.cr{align-items:flex-start;padding:14px}
+.cr.best{background:var(--accent-soft)}
+.cr .f{font-size:12px;font-weight:600;color:var(--text-2);display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cr .n{font-size:16px;font-weight:600;margin-top:3px}
+.cr .u{font-size:12px;color:var(--text-2);margin-top:6px}
+.cr .u.old{color:var(--warn);font-weight:500}
+.rt{text-align:right;flex:none}
+.rt .p{font-size:24px;font-weight:600;letter-spacing:-0.02em}
+.rt .p small{font-size:12px;font-weight:500;color:var(--text-2);font-family:var(--font)}
+.rt .d{font-size:13px;color:var(--text-2);margin-top:4px}
+.cr.best .rt .p{color:var(--accent)}
+.sum{margin-top:14px;font-size:13px;color:var(--text-2);display:flex;gap:8px;align-items:flex-start;padding:0 2px}
+.sum i{font-size:18px;color:var(--accent);margin-top:1px}
+</style></head><body>
+<div class="app">
+<div class="statusbar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i> <i class="ph-fill ph-wifi-high"></i> <i class="ph-fill ph-battery-full"></i></span></div>
+<div class="topbar"><h1>Search</h1></div>
+<div class="scroll" style="padding-top:0">
+  <div class="search" style="border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)"><i class="ph ph-magnifying-glass" style="color:var(--accent)"></i><span class="q">600x1200 glossy</span><span class="clr"><i class="ph-fill ph-x-circle"></i></span></div>
+  <div class="chips" style="margin-top:12px"><span class="chip on">Tiles</span><span class="chip">Sanitaryware</span><span class="chip on">Per sqft</span><span class="chip">Per box</span></div>
+  <div class="res-h"><b id="hd"></b><span>Sorted by lowest rate</span></div>
+  <div class="list" id="rows"></div>
+  <div class="sum"><i class="ph-fill ph-info"></i><span>Lowest is <b class="mono" style="color:var(--text)">₹38.50</b> at Sunrise Ceramics. Highest is <b class="mono" style="color:var(--text)">₹4.50</b> more per sqft. Rates ex-factory, GST extra.</span></div>
+</div>
+<div class="tabbar">
+<div class="tab"><i class="ph ph-house"></i>Home</div>
+<div class="tab"><i class="ph ph-factory"></i>Factories</div>
+<div class="tab active"><i class="ph-fill ph-magnifying-glass"></i>Search</div>
+<div class="tab"><i class="ph ph-gear"></i>Settings</div>
+</div></div>
+<script>
+const r=DATA.compare.rows.slice().sort((a,b)=>a.rate-b.rate),low=r[0].rate;
+const fm=n=>'₹'+n.toFixed(2);
+document.getElementById('hd').textContent=r.length+' matches across '+new Set(r.map(x=>x.factory)).size+' factories';
+document.getElementById('rows').innerHTML=r.map(x=>`<div class="row cr${x.best?' best':''}"><div class="grow">
+<div class="f">${x.factory}${x.best?'<span class="badge ok"><i class="ph-bold ph-check"></i>Lowest</span>':''}${x.stale?'<span class="badge warn"><i class="ph-bold ph-warning"></i>Old list</span>':''}</div>
+<div class="n">${x.item}</div><div class="u${x.stale?' old':''}">Updated ${x.updated}</div></div>
+<div class="rt"><div class="p mono">${fm(x.rate)}<small>/${x.unit}</small></div><div class="d mono">${x.best?'Lowest':'+'+(x.rate-low).toFixed(2)}</div></div></div>`).join('');
+</script></body></html>

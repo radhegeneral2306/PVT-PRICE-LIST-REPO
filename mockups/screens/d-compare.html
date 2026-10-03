@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1280">
+<title>Search</title>
+<link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>*{}
+.biz{display:flex;gap:10px;align-items:center;padding:4px 6px 18px}.logo{width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+.bn{font-weight:700;font-size:15px}.bs{font-size:12px;color:var(--text-2)}
+.rfoot{margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px 6px 0;border-top:1px solid var(--line)}
+main{padding:24px 32px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.dsearch{height:48px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--text-3)}.dsearch i{font-size:20px}
+.kbd{margin-left:auto;font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 6px;color:var(--text-3)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;font-weight:600;color:var(--text-2);padding:0 14px;height:38px;background:var(--surface-2);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:0 14px;height:44px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}.r{text-align:right}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.dsearch{height:56px;font-size:18px;color:var(--text);border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.dsearch i.ph-magnifying-glass{color:var(--accent);font-size:22px}
+.fr{display:flex;gap:8px;align-items:center;margin-top:14px}
+.rh{display:flex;align-items:baseline;gap:12px;margin:20px 2px 10px}.rh b{font-size:16px}.rh span{font-size:13px;color:var(--text-2)}
+tr.best td{background:var(--accent-soft)}tr.best .rate{color:var(--accent)}
+tr.stale td{background:#fffaf0}
+.note{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--text-2);margin:12px 2px 0}.note i{font-size:18px;color:var(--accent)}
+</style></head><body>
+<div class="desk">
+<aside class="rail"><div class="biz"><div class="logo">R</div><div><div class="bn">Radhe General</div><div class="bs">Pricelist Vault</div></div></div><span class="btn btn-primary" style="margin:6px 0 14px"><i class="ph-bold ph-plus"></i>Add pricelist</span><div class="navitem"><i class="ph ph-house"></i>Home</div><div class="navitem"><i class="ph ph-factory"></i>Factories</div><div class="navitem active"><i class="ph-fill ph-magnifying-glass"></i>Search</div><div class="navitem"><i class="ph ph-gear"></i>Settings</div><div class="rfoot"><div class="avatar" style="width:36px;height:36px;font-size:14px">O</div><div><div style="font-weight:600;font-size:14px">Owner</div><div style="font-size:12px;color:var(--text-2)">Synced 2 min ago</div></div></div></aside>
+<main>
+  <div class="dsearch"><i class="ph ph-magnifying-glass"></i>600x1200 glossy<span class="kbd" style="font-family:var(--font);font-size:13px;display:flex;gap:4px;align-items:center;border:0;color:var(--text-2)"><i class="ph-fill ph-x-circle" style="font-size:20px"></i></span></div>
+  <div class="fr"><span class="chip on">Tiles</span><span class="chip">Sanitaryware</span><span class="chip on">Per sqft</span><span class="chip">Per box</span><span class="chip">Any factory<i class="ph-bold ph-caret-down" style="margin-left:6px;font-size:12px"></i></span><span style="margin-left:auto;font-size:13px;color:var(--text-2)">Sorted by lowest rate</span></div>
+  <div class="rh"><b id="hd"></b><span>Current pricelists only</span></div>
+  <div class="panel"><table><thead><tr><th>Factory</th><th>Item</th><th>Size</th><th>Finish</th><th class="r">Rate</th><th>Unit</th><th>Updated</th><th class="r">Vs lowest</th></tr></thead><tbody id="tb"></tbody></table></div>
+  <div class="note"><i class="ph-fill ph-info"></i>Rates are per sqft ex-factory, GST extra. Lists older than 3 weeks are flagged.</div>
+</main></div>
+<script>
+const R=[
+['Sunrise Ceramics','Calacatta Gold',38.5,'2 days ago'],
+['Kailash Vitrified','Marble White Glossy',40,'1 week ago'],
+['Kailash Vitrified','Onyx Pearl',40.75,'1 week ago'],
+['Sunrise Ceramics','Carrara Silk',41,'2 days ago'],
+['Aarav Tiles Pvt Ltd','Statuario Premium',41.5,'3 weeks ago',1],
+['Sunrise Ceramics','Armani Grey',43,'2 days ago'],
+['Kailash Vitrified','Crystal Ivory',43.5,'1 week ago'],
+['Aarav Tiles Pvt Ltd','Onyx Cloud',44.5,'3 weeks ago',1]];
+const low=R[0][2];
+document.getElementById('hd').textContent=R.length+' matches across '+new Set(R.map(r=>r[0])).size+' factories';
+document.getElementById('tb').innerHTML=R.map((r,i)=>'<tr class="'+(i===0?'best':r[4]?'stale':'')+'"><td style="font-weight:600">'+r[0]+'</td><td>'+r[1]+'</td><td class="mono">600x1200</td><td>Glossy</td><td class="r mono rate" style="font-weight:600;font-size:15px">₹'+r[2].toFixed(2)+'</td><td style="color:var(--text-2)">per sqft</td><td'+(r[4]?' style="color:var(--warn);font-weight:500"':'')+'>'+r[3]+(r[4]?' <span class="badge warn" style="margin-left:6px">Old list</span>':'')+'</td><td class="r mono">'+(i===0?'<span class="badge ok">Lowest</span>':'+'+(r[2]-low).toFixed(2))+'</td></tr>').join('');
+</script></body></html>

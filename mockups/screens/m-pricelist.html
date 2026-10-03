@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pricelist items</title><link rel="stylesheet" href="../tokens.css"><script src="../data.js"></script>
+<style>
+.sub{font-size:13px;color:var(--text-2);margin-top:2px}
+.topbar .ttl{flex:1;min-width:0}.topbar h1{font-size:19px;line-height:1.2;flex:none}
+.meta{padding:0 16px 12px;display:flex;flex-direction:column;gap:6px}
+.meta .l{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-2)}
+.meta .l i{font-size:16px;color:var(--text-3)}
+.tools{padding:0 16px 10px;display:flex;flex-direction:column;gap:10px;background:var(--bg);border-bottom:1px solid var(--line)}
+.search{height:44px}.search span{color:var(--text-3)}
+.chip i{margin-left:6px;font-size:12px}.chip.on{gap:0}
+.count{display:flex;justify-content:space-between;align-items:center;padding:10px 16px 6px;font-size:12px;color:var(--text-2);font-weight:600}
+.items{flex:1;overflow:hidden;position:relative;padding:0 16px}
+.items:after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:linear-gradient(transparent,var(--bg))}
+.it{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.it .n{font-weight:600;font-size:15px}
+.it .z{font-size:13px;color:var(--text-2);margin-top:2px}
+.it .y{font-size:12px;color:var(--text-3);margin-top:2px}
+.it .r{text-align:right;flex:none}
+.it .r b{font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-0.02em}
+.it .r small{display:block;font-size:11px;color:var(--text-3);margin-top:1px}
+.sbar{position:absolute;right:4px;top:8px;width:3px;height:92px;border-radius:2px;background:var(--line)}
+</style></head><body>
+<div class="app">
+<div class="statusbar"><span>9:41</span><span style="display:flex;gap:6px;font-size:15px"><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+<div class="topbar"><a class="iconbtn"><i class="ph ph-arrow-left"></i></a>
+<div class="ttl"><h1>GVT Collection Oct 2026</h1><div class="sub">Sunrise Ceramics, Morbi</div></div>
+<a class="iconbtn"><i class="ph ph-share-network"></i></a></div>
+<div class="meta">
+<div class="l"><span class="badge ok"><i class="ph-bold ph-check-circle"></i>Current</span><i class="ph ph-calendar-blank" style="margin-left:4px"></i>Effective 01 Oct 2026</div>
+<div class="l"><i class="ph ph-info"></i>Rates ex-factory, GST extra</div></div>
+<div class="tools">
+<div class="search"><i class="ph ph-magnifying-glass"></i><span>Search in this list</span></div>
+<div class="chips"><span class="chip on">All<i class="ph-bold ph-caret-down"></i></span><span class="chip">Size<i class="ph-bold ph-caret-down"></i></span><span class="chip">Finish<i class="ph-bold ph-caret-down"></i></span><span class="chip">Under 35<i class="ph-bold ph-caret-down"></i></span></div></div>
+<div class="count"><span>84 items</span><span style="font-weight:500;color:var(--text-3)">Rate per sqft</span></div>
+<div class="items" id="items"><div class="sbar"></div></div>
+<div class="tabbar">
+<div class="tab"><i class="ph ph-house"></i>Home</div><div class="tab active"><i class="ph-fill ph-factory"></i>Factories</div><div class="tab"><i class="ph ph-magnifying-glass"></i>Search</div><div class="tab"><i class="ph ph-gear"></i>Settings</div></div>
+</div>
+<script>
+var t=DATA.tileItems,h='';
+t.concat(t.slice(0,4)).forEach(function(i){
+h+='<div class="it"><div style="flex:1;min-width:0"><div class="n">'+i.name+'</div><div class="z">'+i.size+' mm &middot; '+i.finish+'</div><div class="y">'+i.thickness+' &middot; '+i.box+' per box</div></div><div class="r"><b>₹'+i.rate.toFixed(2)+'</b><small>/'+i.unit+'</small></div></div>';});
+document.getElementById('items').insertAdjacentHTML('beforeend',h);
+</script></body></html>
